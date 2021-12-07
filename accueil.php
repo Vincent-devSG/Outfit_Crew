@@ -125,9 +125,10 @@
 
 
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-5">
                 <div id="About" class="jumbotron">
                     <h3>About Outfit Crew</h3>
+                    <br>
                     <p>Outfit Crew est heureux de vous présenter une grande collection de vêtements.<br> Si vous avez des questions, n'hésitez pas à nous contacter comme indiqué en bas de la page.
                     </p>
                 </div>
@@ -138,7 +139,7 @@
                 <div id="Renseignement" class="jumbotron">
                     <h3>Où sommes-nous: </h3>
                     
-
+                    <br>
                     <p>
                         37 Quai de Grenelle, 75015 Paris   
                     </p>
@@ -147,25 +148,20 @@
                     </p>
                 </div>
 
-
             </div>
 
-             <div class="col-sm-3 text-center">
-                <div id="B_Map" class="jumbotron">
-                    <p>Clique ici :</p>
-                    <p>
-                        <a href="https://www.google.fr/maps/place/ECE+Paris+Lyon/@48.8554659,2.2864929,14z/data=!4m5!3m4!1s0x47e6701b4f58251b:0x167f5a60fb94aa76!8m2!3d48.8517668!4d2.2864819" class="btn btn-info btn-lg">
-                            <span class="glyphicon glyphicon-map-marker"></span> Map
-                        </a>
-                    </p> 
+            <div class="col-sm-4">
+
+                <div id="map-container-google-8" class="jumbotron z-depth-1-half map-container-5" style="margin-top: 50px;">
+                    <iframe src="https://maps.google.com/maps?q=Ece%20paris&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
-                
-            </div>
 
+            </div>
 
         </div>
 
     </div>
+
 
     <footer class="container-fluid text-center">Copyright &copy; 2021 Outfit Crew<br>
         <a href="mailto:vincent.pompei@edu.ece.fr">vincent.pompei@edu.ece.fr</a>
