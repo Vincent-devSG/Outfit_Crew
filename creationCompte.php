@@ -1,6 +1,6 @@
 <?php 
 
-     echo "<br> on récupère les infos";
+     //echo "<br> on récupère les infos";
      //on récupère les infos
      
      $database = "bdd_shop";
@@ -31,7 +31,7 @@
 if($enregistrer =='enregistrer')//si on appuie sur enregistrer
 {
 
-    echo "<br> on enregistre dans la bdd";
+    //echo "<br> on enregistre dans la bdd";
          //si toutes les cases sont remplies
     if($nom!="" && $prenom!="" && $mail!="" && $adresse!="" && $pays!="" && $ville!="" && $CP!="" && $tel!="" && $type_paiement!="" && $num_carte!="" && $nom_carte!="" && $date_exp!="" && $code_carte!="" && $pseudo!="" && $mdp!="")
     {
@@ -39,7 +39,8 @@ if($enregistrer =='enregistrer')//si on appuie sur enregistrer
         $sql = "INSERT INTO `acheteur` (`ID`, `nom`, `prenom`, `mail`, `adresse`, `ville`, `CP`, `pays`, `tel`, `type_paiement`, `num_carte`, `nom_carte`, `date_exp`, `code_carte`, `panier`, `pseudo`, `mdp`) VALUES (NULL, '$nom', '$prenom', '$mail', '$adresse', '$ville', '$CP', '$pays', '$tel', '$type_paiement', '$num_carte', '$nom_carte', '$date_exp', '$code_carte', '', '$pseudo', '$mdp')";
 
         $result1 = mysqli_query($db_handle,$sql);
-        echo "<br>Votre profil a bien été enregistré";
+        header('Location: accueil.php');
+       // echo "<br>Votre profil a bien été enregistré";
     }
     else{ //si ils manquent des cases a remplir
             echo "<br>erreur, toutes les cases ne sont pas remplies";
