@@ -16,6 +16,10 @@ footer {
 
 .carousel-inner img 
 {
-   width: 40%;
+
    margin: auto;
+}
+
+.jumbotron {
+    margin-top: 50px;
 }
