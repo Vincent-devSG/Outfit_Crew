@@ -61,7 +61,7 @@
         </div>
 
 
-        <div class="row">
+        <div class="row slide">
             <div class="col-sm-2">
 
             </div>
@@ -124,7 +124,7 @@
     <div class="container-fluid">
 
 
-        <div class="row">
+        <div class="row slide">
             <div class="col-sm-5">
                 <div id="About" class="jumbotron">
                     <h3>About Outfit Crew</h3>
