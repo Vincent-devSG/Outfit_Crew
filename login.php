@@ -247,7 +247,7 @@
      }
     
     		
-		mysqli_close($db_handle);
+		/*mysqli_close($db_handle);*/
 
 
 ?>

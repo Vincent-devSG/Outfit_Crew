@@ -68,21 +68,21 @@
       <div class="carousel-inner">
 
           <div class="item active">
-            <img src="IMG/T-Shirt1.jpg" style="width:100%;">
+            <img class="img-fluid" src="IMG/T-Shirt1.jpg">
             <div class="carousel-caption">
               <h3>T-Shirt</h3>
           </div>
       </div>
 
       <div class="item">
-        <img src="IMG/pantalon1.jpg" style="width:100%;">
+        <img class="img-fluid" src="IMG/pantalon1.jpg">
         <div class="carousel-caption">
           <h3>Pantalon</h3>
       </div>
   </div>
 
   <div class="item">
-    <img src="IMG/sweat1.jpg"style="width:100%;">
+    <img class="img-fluid" src="IMG/sweat1.jpg">
     <div class="carousel-caption">
       <h3>Sweat</h3>
   </div>
