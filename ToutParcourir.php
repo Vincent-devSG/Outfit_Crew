@@ -6,7 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <link href="accueil.css" rel="stylesheet" type="text/css"/>
+    <link href="ToutParcourir.css" rel="stylesheet" type="text/css"/>
 
 </head>
 
@@ -101,6 +101,7 @@
 <!-- affichage des blocs de produits -->
 <br><br>   
 
+<!--
 <div class="container-fluid text-center bg-grey">
   
     <div class="col-sm-4">
@@ -123,11 +124,81 @@
         <p><strong>San Francisco</strong></p>
         <p>Yes, San Fran is ours</p>
       </div>
-    </div>
-  
-</div> <!-- fin du slide -->
+    </div> -->
 
-</div>
+    <!--
+        $database = "bdd_shop";
+        $db_handle = mysqli_connect('localhost','root','');
+        $db_found = mysqli_select_db($db_handle,$database);
+
+        $sql = "SELECT * FROM objet";
+
+        $result = mysqli_query($db_handle, $sql);
+
+        echo "<table border=\"1\">";    
+
+        while ($data = mysqli_fetch_assoc($result)) {
+ 
+        echo "<tr>";
+        $image = $data['photo'];
+        echo "IMAGE" .$image;
+        echo "<td>" . "<img src='$image' height='400' width='300'>" . "</td>";    
+        echo "<td>" . $data['nom'] . "</td>";
+        echo "<td>" . $data['description'] . "</td>";
+        echo "<td>" . $data['etat'] . "</td>";
+        echo "<td>" . $data['prix'] . "</td>";
+        echo "<td>" . $data['categorie'] . "</td>";
+
+        echo "</tr>";
+        
+    }
+        echo "</table>";
+    -->
+
+
+       
+
+        <?php
+
+            $database = "bdd_shop";
+
+            $db_handle = mysqli_connect('localhost','root','');
+            $db_found = mysqli_select_db($db_handle,$database);
+
+            $sql = "SELECT * FROM objet";
+
+            $result = mysqli_query($db_handle, $sql);
+            
+
+            echo "<div class= 'container-fluid text-center bg-grey'>";
+            echo "<div class= 'row'>";
+            while ($data = mysqli_fetch_assoc($result)) {
+           
+               
+            echo "<div class= 'col-sm-4'>";
+            echo "<div class= 'thumbnail'>";    
+            
+            $image = $data['photo'];
+            echo "<img src='$image' height='300' width='200'>";    
+            echo "<br>" .$data['nom'];
+            echo "<br>" .$data['description'];
+            echo "<br>" .$data['etat'];
+            echo "<br>" .$data['prix'];
+            echo "<br>" .$data['categorie'];
+
+           
+            
+            echo "</div>";
+            echo "</div>";  
+             
+            }
+            echo "</div>"; 
+            echo "</div>"; 
+
+        ?>
+                           
+
+</div> <!-- fin du slide -->
 
 
 <footer class="container-fluid text-center">Copyright &copy; 2021 Outfit Crew<br>

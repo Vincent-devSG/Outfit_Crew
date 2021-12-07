@@ -1,0 +1,79 @@
+/* Remove the navbar's default rounded borders and increase the bottom margin */ 
+.navbar {
+    margin-bottom: 50px;
+    margin-top: 50px;
+    font-size: 1.50em;
+}
+.header {
+    padding-top: 1%;
+}
+
+/* gray background color*/
+footer {
+  background-color: #d4d4d4;
+  padding: 25px;
+}
+
+body{
+    background-color: #fafafa;
+}
+
+.carousel-inner img 
+{
+   width: 70%;
+   margin: auto;
+}
+
+#About.jumbotron {
+    margin-top: 50px;
+    background-color: #80bfff;
+
+}
+
+#Renseignement.jumbotron {
+    margin-top: 50px;
+    background-color: #bbf0c8;
+
+}
+
+#B_Map.jumbotron {
+    margin-top: 50px;
+    background-color: #CCCCFF;
+
+}
+
+
+.slideanim {visibility:hidden;}
+.slide {
+  /* The name of the animation */
+  animation-name: slide;
+  -webkit-animation-name: slide;
+  /* The duration of the animation */
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  /* Make the element visible */
+  visibility: visible;
+}
+
+/* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateY(70%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@-webkit-keyframes slide {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(70%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+  }
+}
+
