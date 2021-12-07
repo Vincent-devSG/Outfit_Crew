@@ -54,68 +54,111 @@
     </nav>
 
     <div class="container">
-      <h2>Carousel Example</h2>
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
+        <div class="alert alert-info text-center">
+            <strong>Info!</strong> Artciles en top tendance.
+        </div>
 
 
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
+        <div class="row">
+            <div class="col-sm-1">
 
-          <div class="item active">
-            <img class="img-fluid" src="IMG/T-Shirt1.jpg">
-            <div class="carousel-caption">
-              <h3>T-Shirt</h3>
-          </div>
-      </div>
+            </div>
 
-      <div class="item">
-        <img class="img-fluid" src="IMG/pantalon1.jpg" >
-        <div class="carousel-caption">
-          <h3>Pantalon</h3>
-      </div>
-  </div>
-
-  <div class="item">
-    <img class="img-fluid" src="IMG/sweat1.jpg">
-    <div class="carousel-caption">
-      <h3>Sweat</h3>
-  </div>
-</div>
-
-</div>
-
-<!-- Left and right controls -->
-<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-  <span class="glyphicon glyphicon-chevron-left"></span>
-  <span class="sr-only">Previous</span>
-</a>
-<a class="right carousel-control" href="#myCarousel" data-slide="next">
-  <span class="glyphicon glyphicon-chevron-right"></span>
-  <span class="sr-only">Next</span>
-</a>
-</div>
-</div>
+            <div class="col-sm-10">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                      <li data-target="#myCarousel" data-slide-to="1"></li>
+                      <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
 
 
+                  <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img class="img-fluid" src="IMG/T-Shirt1.jpg">
+                            <div class="carousel-caption">
+                                <h3>T-Shirt</h3>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <img class="img-fluid" src="IMG/pantalon1.jpg" >
+                            <div class="carousel-caption">
+                                <h3>Pantalon</h3>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <img class="img-fluid" src="IMG/sweat1.jpg">
+                            <div class="carousel-caption">
+                                <h3>Sweat</h3>
+                            </div>
+                        </div>
+
+                    </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-sm-1">
+
+        </div>
 
 
 
 
 
 
-<footer class="container-fluid text-center">Copyright &copy; 2021 Outfit Crew<br>
-    <a href="mailto:vincent.pompei@edu.ece.fr">vincent.pompei@edu.ece.fr</a>
-</footer>
 
 
 
 
-</div>
+        
+    </div>
+
+
+    <div class="container">
+        <div class="jumbotron">
+            <h3>About Outfit Crew</h3>
+            <p>Outfit Crew est heureux de vous présenter une grande collection de vêtements.</p>
+            <p>Si vous avez des questions, n'hésitez pas à nous contacter comme indiqué en bas de la page.</p>
+        </div>
+        
+    </div>
+
+
+
+    <div class="contact">Paris Drip<br>
+        <a href="https://www.google.fr/maps/place/ECE+Paris+Lyon/@48.8554659,2.2864929,14z/data=!4m5!3m4!1s0x47e6701b4f58251b:0x167f5a60fb94aa76!8m2!3d48.8517668!4d2.2864819"> <img src="map.png" alt="map_localisation"/></a><br>
+        37 Quai de Grenelle, 75015 Paris<br>
+        75015 Paris<br> <br>
+        (+33) 01 02 03 04 05 06 <br> <br>  
+    </div>
+
+
+
+
+
+
+
+
+    <footer class="container-fluid text-center">Copyright &copy; 2021 Outfit Crew<br>
+        <a href="mailto:vincent.pompei@edu.ece.fr">vincent.pompei@edu.ece.fr</a>
+    </footer>
+
+
+
+
 </body>
 </html>
