@@ -75,7 +75,7 @@
       </div>
 
       <div class="item">
-        <img class="img-fluid" src="IMG/pantalon1.jpg">
+        <img class="img-fluid" src="IMG/pantalon1.jpg" >
         <div class="carousel-caption">
           <h3>Pantalon</h3>
       </div>
