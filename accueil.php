@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
         <style>
         /* Remove the navbar's default rounded borders and increase the bottom margin */ 
         .navbar {
@@ -12,13 +13,13 @@
           border-radius: 0;
         }
             
-            
         /* gray background color*/
         footer {
           background-color: #d4d4d4;
           padding: 25px;
         }
         </style>
+        
         <!-- importer le fichier de style -->
        <!-- <link rel="stylesheet" href="login.css" media="screen" type="text/css" />-->
     </head>
