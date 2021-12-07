@@ -6,30 +6,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <link href="accueil.css" rel="stylesheet" type="text/css"/>
+    <link href="accueil.css" rel="stylesheet" type="text/css" />
 
 </head>
 
 <body style='background:#ffffff;'>
 
-    <div class="header"> <!-- header/haut de page-->
+    <div class="header">
+        <!-- header/haut de page-->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-1"></div>
                 <div class="col-sm-1"><a href="accueil.php"> <img src="logo.png" alt="logo"/></a></div>
                 <div class="col-sm-8 text-center">
                     <h1>Outfit Crew</h1>
-                </div>    
+                </div>
                 <div class="col-sm-2"></div>
 
             </div>
         </div>
-        
+
 
     </div>
 
 
-    <nav class="navbar navbar-inverse"> <!-- Barre de navigation -->
+    <nav class="navbar navbar-inverse">
+        <!-- Barre de navigation -->
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -41,7 +43,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav text-lg">
                     <li><a href="accueil.php">Accueil</a></li>
-                    <li><a href="ToutParcourir.php">Tout Parcourir</a></li>
+                    <li><a href="#">Tout Parcourir</a></li>
                     <li><a href="#">Notifications</a></li>
 
                 </ul>
@@ -60,21 +62,21 @@
 
 
         <div class="row">
-            <div class="col-sm-1">
+            <div class="col-sm-2">
 
             </div>
 
-            <div class="col-sm-10">
+            <div class="col-sm-8">
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
-                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                      <li data-target="#myCarousel" data-slide-to="1"></li>
-                      <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
                     </ol>
 
 
-                  <!-- Wrapper for slides -->
+                    <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                         <div class="item active">
                             <img class="img-fluid" src="IMG/T-Shirt1.jpg">
@@ -84,7 +86,7 @@
                         </div>
 
                         <div class="item">
-                            <img class="img-fluid" src="IMG/pantalon1.jpg" >
+                            <img class="img-fluid" src="IMG/pantalon1.jpg">
                             <div class="carousel-caption">
                                 <h3>Pantalon</h3>
                             </div>
@@ -99,66 +101,75 @@
 
                     </div>
 
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+
             </div>
         </div>
+    </div>
 
-        <div class="col-sm-1">
+
+
+    <div class="container-fluid">
+
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div id="About" class="jumbotron">
+                    <h3>About Outfit Crew</h3>
+                    <p>Outfit Crew est heureux de vous présenter une grande collection de vêtements.<br> Si vous avez des questions, n'hésitez pas à nous contacter comme indiqué en bas de la page.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="col-sm-3">
+                <div id="Renseignement" class="jumbotron">
+                    <h3>Où sommes-nous: </h3>
+                    
+
+                    <p>
+                        37 Quai de Grenelle, 75015 Paris   
+                    </p>
+                    <p>
+                        (+33) 01 02 03 04 05 06 
+                    </p>
+                </div>
+
+
+            </div>
+
+             <div class="col-sm-3 text-center">
+                <div id="B_Map" class="jumbotron">
+                    <p>Clique ici :</p>
+                    <p>
+                        <a href="https://www.google.fr/maps/place/ECE+Paris+Lyon/@48.8554659,2.2864929,14z/data=!4m5!3m4!1s0x47e6701b4f58251b:0x167f5a60fb94aa76!8m2!3d48.8517668!4d2.2864819" class="btn btn-info btn-lg">
+                            <span class="glyphicon glyphicon-map-marker"></span> Map
+                        </a>
+                    </p> 
+                </div>
+                
+            </div>
+
 
         </div>
 
-
-
-
-
-
-
-
-
-
-        
     </div>
-
-
-    <div class="container">
-        <div class="jumbotron">
-            <h3>About Outfit Crew</h3>
-            <p>Outfit Crew est heureux de vous présenter une grande collection de vêtements.</p>
-            <p>Si vous avez des questions, n'hésitez pas à nous contacter comme indiqué en bas de la page.</p>
-        </div>
-        
-    </div>
-
-
-
-    <div class="contact">Paris Drip<br>
-        <a href="https://www.google.fr/maps/place/ECE+Paris+Lyon/@48.8554659,2.2864929,14z/data=!4m5!3m4!1s0x47e6701b4f58251b:0x167f5a60fb94aa76!8m2!3d48.8517668!4d2.2864819"> <img src="map.png" alt="map_localisation"/></a><br>
-        37 Quai de Grenelle, 75015 Paris<br>
-        75015 Paris<br> <br>
-        (+33) 01 02 03 04 05 06 <br> <br>  
-    </div>
-
-
-
-
-
-
-
 
     <footer class="container-fluid text-center">Copyright &copy; 2021 Outfit Crew<br>
         <a href="mailto:vincent.pompei@edu.ece.fr">vincent.pompei@edu.ece.fr</a>
     </footer>
-
-
-
 
 </body>
 </html>
