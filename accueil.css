@@ -14,6 +14,10 @@ footer {
   padding: 25px;
 }
 
+body{
+    background-color: #fafafa;
+}
+
 .carousel-inner img 
 {
    width: 70%;
