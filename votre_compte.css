@@ -1,0 +1,19 @@
+/* Remove the navbar's default rounded borders and increase the bottom margin */ 
+.navbar {
+    margin-bottom: 50px;
+    margin-top: 50px;
+    font-size: 1.50em;
+}
+.header {
+    padding-top: 1%;
+}
+
+/* gray background color*/
+footer {
+  background-color: #d4d4d4;
+  padding: 25px;
+}
+
+body{
+    background-color: #fafafa;
+}
