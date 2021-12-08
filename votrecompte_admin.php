@@ -54,6 +54,14 @@
         </div>
     </nav>
 
+    <div class="container-fluid">
+        <div id="admin" class="jumbotron">
+            <div class="container for-about">
+                <h1>Admin</h1>
+            </div>
+        </div>
+    </div>
+
 
 
     <div class="container">
@@ -71,15 +79,11 @@
                                 <div class="position-relative">
                                     <img src="profil.png" class="img-circle" style="width:72px;height:72px;" />
                                 </div>
-                                <h4 id="thumbnail-label">User</h4>   
+                                <h4 id="thumbnail-label">Admin</h4>   
 
                             </div>
                             <div class="caption card-footer text-left">
-                                <p><span class="glyphicon glyphicon-user"></span> Nom : <br>
-                                    Prenom : </p>
-
-                                <p><span class="glyphicon glyphicon-envelope"></span> Mail : </p>  
-                                <p><span class="glyphicon glyphicon-phone"></span> Téléphone :</p>    
+                                <p><span class="glyphicon glyphicon-user"></span> Pseudo :  </p>      
                             </div>
                         </div>
                     </div>
@@ -90,35 +94,26 @@
         </div>
     </div>
 
-    <div id="tableau" class="container">
 
+    <div class="container">
         <div class="row">
-            <div class="col-sm-2"></div>
-
-            <div class="col-sm-8">
-                <table class="table table-striped">
-                    <tbody>
-                        <tr>
-                            <td>Adresse : </td>
-                        </tr>
-                        <tr>
-                            <td>Ville : </td>
-                        </tr>
-                        <tr>
-                            <td>Code Postal :</td>
-                        </tr>
-                        <tr>
-                            <td>Pays :</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <a href="ajouter_vendeur.php" id="ajouter_obj" class="btn btn-default btn-block">Ajouter un nouveau vendeur</a>
             </div>
-
-            <div class="col-sm-2"></div>
+            <div class="col-sm-4"></div>
         </div>
     </div>
 
-
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <a href="supprimer_vendeur.php" id="supprimer_obj" class="btn btn-default btn-block">Supprimer vendeur</a>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
 
     <div id="deco" class="container">
         <div class="row">
