@@ -48,7 +48,7 @@
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Votre Compte</a></li>
+                    <li><a href="votrecompte_acheteur.php"><span class="glyphicon glyphicon-user"></span> Votre Compte</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Panier</a></li>
                 </ul>
             </div>
