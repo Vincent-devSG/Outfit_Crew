@@ -15,33 +15,40 @@
     $mail = isset($_POST["mail"])? $_POST["mail"] : ""; //mdp
 
     $valider = isset($_POST["Valider"])? $_POST["Valider"] : ""; //mdp
+    $test="0";
 
     
 
 
     if($valider == "1")
     {
-        if($pseudo!="" && $mdp!="")
+        if($pseudo!="" && $mdp!="" && $mail!="")
         {
-            $sql = "INSERT INTO `vendeur` (`ID`, `pseudo`, `mdp`, `mail`, `photo_profil`, `photo_mur`) VALUES (NULL, '$pseudo', '$mdp', '$mail', '', '')";
 
-            $result = mysqli_query($db_handle,$sql);
-            // echo "<br>Votre profil a bien été enregistré";
+            $check_email = mysqli_query($db_handle, "SELECT pseudo FROM vendeur where pseudo = '$pseudo'");
+            if(mysqli_num_rows($check_email) > 0)
+            {
+                $test="1";
+                echo "<div class='alert alert-danger alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Danger!</strong> Ce pseudo n'est pas disponible !!!.</div>";
+            }
 
-            echo "<div class='alert alert-success alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Succes!</strong> Vous Vous avez enregistré un nouveau vendeur !!!</div>";
+            if ($test=='0') 
+            {
+                $sql2 = "INSERT INTO `vendeur` (`ID`, `pseudo`, `mdp`, `mail`, `photo_profil`, `photo_mur`) VALUES (NULL, '$pseudo', '$mdp', '$mail', '', '')";
 
+                $result = mysqli_query($db_handle,$sql2);
+                // echo "<br>Votre profil a bien été enregistré";
+
+                echo "<div class='alert alert-success alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Succes!</strong> Vous Vous avez enregistré un nouveau vendeur !!!</div>";
+            }
 
         }
-        else{ //si ils manquent des cases a remplir
-            echo "<div class='alert alert-danger alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Danger!</strong> Vous n'avez pas rempli tous les champs !!!.</div>";
-
-        }
-
+        else
+            {
+                //si ils manquent des cases a remplir
+                echo "<div class='alert alert-danger alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Danger!</strong> Vous n'avez pas rempli tous les champs !!!.</div>";
+            }
     }
-
-
-
-
 
 ?>
 
