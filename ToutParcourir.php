@@ -7,6 +7,43 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <link href="ToutParcourir.css" rel="stylesheet" type="text/css"/>
+
+    <script>
+        $(document).ready(function(){
+        // Add smooth scrolling to all links in navbar + footer link
+        $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+            // Store hash
+            var hash = this.hash;
+
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 900, function(){
+
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+        });
+            } // End if
+        });
+
+        $(window).scroll(function() {
+            $(".slideanim").each(function(){
+                var pos = $(this).offset().top;
+
+                var winTop = $(window).scrollTop();
+                if (pos < winTop + 600) {
+                    $(this).addClass("slide");
+                }
+            });
+        });
+    })
+    </script>
     
 
 </head>
@@ -61,6 +98,9 @@
         <h2><div class="well">Découvrez notre gamme de produits</div></h2>
     </div>
 </div>
+</div> <!-- fin du slide -->
+
+<div class="row text-center slideanim">
 <div class="container">
 <div class="well well-sm">Trier par Catégorie</div>
 </div> 
@@ -89,6 +129,7 @@
         </tr>
     </table>
 </form> 
+</div> <!-- fin du slide -->
 
  <!-- boutons coulissants pour trier 
  <form action="ToutParcourir.php" method="post" class="form-inline">
@@ -165,7 +206,7 @@
             $db_handle = mysqli_connect('localhost','root','');
             $db_found = mysqli_select_db($db_handle,$database);
 
-            $sql = "";
+            $sql = "SELECT * FROM objet";
 
             //pour les types
 
@@ -211,13 +252,14 @@
 
             $result = mysqli_query($db_handle,$sql);
             
-
+            
             echo "<div class= 'container-fluid text-center bg-grey'>";
             echo "<div class= 'row'>";
             while ($data = mysqli_fetch_assoc($result)) {
            
-               
+             
             echo "<div class= 'col-sm-4'>";
+            echo "<div class= 'slideanim'>"; 
             echo "<div class= 'thumbnail'>";    
             
             $image = $data['photo'];
@@ -231,16 +273,18 @@
            
             
             echo "</div>";
-            echo "</div>";  
+            echo "</div>";
+            echo "</div>";// fin du slide  
              
             }
             echo "</div>"; 
             echo "</div>"; 
+            
 
         ?>
                            
 
-</div> <!-- fin du slide -->
+
 
 
 <footer class="container-fluid text-center">Copyright &copy; 2021 Outfit Crew<br>
