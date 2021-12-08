@@ -59,7 +59,8 @@ if($submit == 'submit')
                 //header('Location: https://www.minecraft.net/en-us');
             }
             else{
-                echo "<br> login et mdp sont invalides";
+                //echo "<br> login et mdp sont invalides";
+                echo "<div class='alert alert-danger alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Erreur!</strong> Login ou mot de passe invalide.</div>";
             }
             
             

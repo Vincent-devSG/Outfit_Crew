@@ -43,7 +43,8 @@ if($enregistrer =='enregistrer')//si on appuie sur enregistrer
        // echo "<br>Votre profil a bien été enregistré";
     }
     else{ //si ils manquent des cases a remplir
-            echo "<br>erreur, toutes les cases ne sont pas remplies";
+            //echo "<br>erreur, toutes les cases ne sont pas remplies";
+        echo "<div class='alert alert-danger alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Erreur!</strong> Toutes les cases ne sont pas remplies.</div>";
         }
         
 
