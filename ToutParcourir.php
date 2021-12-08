@@ -272,13 +272,23 @@
             echo "<div class='modal-content'>";
             echo "<div class='modal-header'>";
             echo "<button type='button' class='close' data-dismiss='modal'>&times;</button>";
-            echo "<h4 class='modal-title'>Modal Header</h4>";
+            echo "<h4 class='modal-title'>Ajouter au Panier</h4>";
             echo "</div>";
             echo "<div class='modal-body'>";
-            echo "  <p>Some text in the modal.</p>";
+            echo "  <p>Souhaitez vous ajouter cet objet au Panier?</p>";
+            ///////affichage du produit////////
+            
+            echo "<img src='$image' height='300' width='200' data-toggle='modal' data-target='#myModal'>";
+            echo "<br>" .$data['nom'];
+            echo "<br>" .$data['description'];
+            echo "<br>" .$data['etat'];
+            echo "<br>" .$data['prix'];
+            echo "<br>" .$data['categorie'];
+
+            ////////////////////////////////////////////////////////
             echo " </div>";
             echo " <div class='modal-footer'>";
-            echo "   <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>";
+            echo " <button type='button' class='btn btn-info' data-dismiss='modal'>Ajouter</button>";
             echo "</div>";
             echo "</div>";
 
