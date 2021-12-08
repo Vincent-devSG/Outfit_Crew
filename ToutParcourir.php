@@ -263,7 +263,29 @@
             echo "<div class= 'thumbnail'>";    
             
             $image = $data['photo'];
-            echo "<img src='$image' height='300' width='200'>";    
+            echo "<img src='$image' height='300' width='200' data-toggle='modal' data-target='#myModal'>";
+            //////MODAL//////////
+            echo "<div id='myModal' class='modal fade' role='dialog'>";
+            echo "<div class='modal-dialog'>";
+
+                
+            echo "<div class='modal-content'>";
+            echo "<div class='modal-header'>";
+            echo "<button type='button' class='close' data-dismiss='modal'>&times;</button>";
+            echo "<h4 class='modal-title'>Modal Header</h4>";
+            echo "</div>";
+            echo "<div class='modal-body'>";
+            echo "  <p>Some text in the modal.</p>";
+            echo " </div>";
+            echo " <div class='modal-footer'>";
+            echo "   <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>";
+            echo "</div>";
+            echo "</div>";
+
+            echo "</div>";
+            echo "</div>";
+            ///////////////////
+
             echo "<br>" .$data['nom'];
             echo "<br>" .$data['description'];
             echo "<br>" .$data['etat'];
