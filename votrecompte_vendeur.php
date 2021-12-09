@@ -102,7 +102,7 @@
         <div class="row">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
-                <a href="ajouter_objet" id="ajouter_obj" class="btn btn-default btn-block"> Ajouter un objet à vendre </a>
+                <a href="ajouter_objet.php" id="ajouter_obj" class="btn btn-default btn-block"> Ajouter un objet à vendre </a>
             </div>
             <div class="col-sm-4"></div>
         </div>
@@ -112,7 +112,7 @@
         <div class="row">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
-                <a href="supprimer_objet" id="supprimer_obj" class="btn btn-default btn-block"> Supprimer un de vos objet en vente </a>
+                <a href="supprimer_objet.php" id="supprimer_obj" class="btn btn-default btn-block"> Supprimer un de vos objet en vente </a>
             </div>
             <div class="col-sm-4"></div>
         </div>

@@ -11,24 +11,25 @@
     $db_found = mysqli_select_db($db_handle,$database);
 
 
-    $pseudo = isset($_POST["pseudo"])? $_POST["pseudo"] : ""; 
+    $ID = isset($_POST["id"])? $_POST["id"] : ""; 
+    $nom = isset($_POST["nom"])? $_POST["nom"] : ""; //mdp
     $valider = isset($_POST["Valider"])? $_POST["Valider"] : ""; //mdp
 
     if($valider == "1")
     {
-        if($pseudo!="")
+        if($nom!="" && $ID!="")
         {
-             $check_email = mysqli_query($db_handle, "SELECT pseudo FROM vendeur where pseudo = '$pseudo'");
+            $check_email = mysqli_query($db_handle, "SELECT ID, nom FROM objet where (nom = '$nom' AND ID = '$ID'");
             if(mysqli_num_rows($check_email) > 0)
             {
-                $sql = "DELETE FROM `vendeur` WHERE pseudo = '$pseudo'";
+                $sql = "DELETE FROM `objet` WHERE ID = '$ID'";
                 $result = mysqli_query($db_handle,$sql);
-                echo "<div class='alert alert-success alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Succes!</strong> Vous avez supprimé ce vendeur !!!</div>";
+                echo "<div class='alert alert-success alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Succes!</strong> Vous avez supprimé cet objet!!!</div>";
             }
             else
             {
                 //si ils manquent des cases a remplir
-                echo "<div class='alert alert-danger alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Danger!</strong> Ce vendeur n'existe pas!!!.</div>";  
+                echo "<div class='alert alert-danger alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Danger!</strong> Cet objet n'existe pas!!!.</div>";  
             }
 
 
