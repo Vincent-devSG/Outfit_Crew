@@ -19,7 +19,7 @@
     {
         if($nom!="" && $ID!="")
         {
-            $check_email = mysqli_query($db_handle, "SELECT ID, nom FROM objet where (nom = '$nom' AND ID = '$ID'");
+            $check_email = mysqli_query($db_handle, "SELECT ID, nom FROM objet where (nom = '$nom' AND ID = '$ID')");
             if(mysqli_num_rows($check_email) > 0)
             {
                 $sql = "DELETE FROM `objet` WHERE ID = '$ID'";
