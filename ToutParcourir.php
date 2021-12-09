@@ -256,6 +256,7 @@
             
             echo "<div class= 'container-fluid text-center bg-grey'>";
             echo "<div class= 'row'>";
+
             while ($data = mysqli_fetch_assoc($result)) {
            
              
@@ -294,7 +295,7 @@
 
             echo "<table align='center'>";
             echo "<tr>";
-            echo"  <td colspan='2' align='center'><button type='submit' name='AjouterPanier' value='AjouterPanier'>Ajout</button></td>";
+            echo"  <td colspan='2' align='center'><button type='submit' name='AjouterPanier' value='$ID'>Ajout</button></td>";
             echo" </tr>";
             echo" <tr><td><br></td></tr>";
             echo "</table>";
@@ -302,39 +303,9 @@
             //echo " <button type='button' class='btn btn-info' data-dismiss='modal' name ='AjouterPanier' value='AjouterPanier'>Ajouter</button>";
             echo "</form>";
             //si le bouton est appuyé
-            $AjouterPanier ="";
-            $AjouterPanier =  isset($_POST["AjouterPanier"])? $_POST["AjouterPanier"] : "";
-            if($AjouterPanier =='AjouterPanier')
-            {
-                echo "<br>L objet a bien ete ajoute au panier ";
-
-                $nom = $data['nom'];
-                $etat = $data['etat'];
-                $description = $data['description'];
-                $categorie = $data['categorie'];
-                $prix = $data['prix'];
-
-
-                echo "<br>" .$nom;
-                echo "<br>" .$etat;
-                echo "<br>" .$description;
-                echo "<br>" .$prix;
-
-
-                $sql2 = "INSERT INTO `panier` (`ID`, `ID_vendeur`, `ID_acheteur`, `nom`, `etat`, `photo`, `description`, `categorie`, `prix`, `vendu`) VALUES (NULL, '0', '0', '$nom', '$etat', '$image', '$description', '$categorie', '$prix', '0')";
-
-                //$sql2 = "INSERT INTO `panier` (`ID`, `ID_vendeur`, `Id_acheteur`, `nom`, `etat`, `photo`, `description`, `categorie`, `prix`, `vendu`) VALUES (NULL, '0', '0', '$nom', '$etat', '', '', '', '', '')";
-
-                echo "<br>" .$sql2;
-                
-
-                $result2 = mysqli_query($db_handle,$sql2);
-                
-            }
-            else
-            {
-                echo "<br> pas d ajout ";
-            }
+            
+            //récupère l id de l objet ajouté
+            $AjouterPanier =  isset($_POST["AjouterPanier"])? $_POST["AjouterPanier"] : ""; 
 
             echo "</div>";
             echo "</div>";
@@ -349,15 +320,36 @@
             echo "<br>" .$data['prix'];
             echo "<br>" .$data['categorie'];
 
-           
             
             echo "</div>";
             echo "</div>";
             echo "</div>";// fin du slide  
              
             }
+
             echo "</div>"; 
             echo "</div>"; 
+
+            //on ajoute le produit sélectionné dans le panier
+            //echo $AjouterPanier;
+            $sqlObjet = "SELECT * FROM objet WHERE ID = '$AjouterPanier'";
+            $resultObjet = mysqli_query($db_handle,$sqlObjet);
+            while ($data = mysqli_fetch_assoc($resultObjet)) {
+
+                $nom = $data['nom'];
+                $etat = $data['etat'];
+                $description = $data['description'];
+                $categorie = $data['categorie'];
+                $prix = $data['prix'];
+
+
+                $sql2 = "INSERT INTO `panier` (`ID`, `ID_vendeur`, `ID_acheteur`, `nom`, `etat`, `photo`, `description`, `categorie`, `prix`, `vendu`) VALUES (NULL, '0', '0', '$nom', '$etat', '$image', '$description', '$categorie', '$prix', '0')";
+                $result2 = mysqli_query($db_handle,$sql2);
+
+                
+                echo "<div class='alert alert-success alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Succes!</strong> Vous avez bien ajouté $nom à votre panier ! </div>";
+
+            }
             
 
         ?>
