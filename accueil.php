@@ -49,7 +49,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="votrecompte_vendeur.php"><span class="glyphicon glyphicon-user"></span> Votre Compte</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Panier</a></li>
+                    <li><a href="panier.php"><span class="glyphicon glyphicon-shopping-cart"></span> Panier</a></li>
                 </ul>
             </div>
         </div>

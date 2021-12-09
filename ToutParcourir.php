@@ -79,13 +79,13 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav text-lg">
                     <li><a href="accueil.php">Accueil</a></li>
-                    <li><a href="#">Tout Parcourir</a></li>
+                    <li><a href="ToutParcourir.php">Tout Parcourir</a></li>
                     <li><a href="#">Notifications</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Votre Compte</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Panier</a></li>
+                    <li><a href="panier.php"><span class="glyphicon glyphicon-shopping-cart"></span> Panier</a></li>
                 </ul>
             </div>
         </div>
@@ -341,6 +341,7 @@
                 $description = $data['description'];
                 $categorie = $data['categorie'];
                 $prix = $data['prix'];
+                $image = $data['photo'];
 
 
                 $sql2 = "INSERT INTO `panier` (`ID`, `ID_vendeur`, `ID_acheteur`, `nom`, `etat`, `photo`, `description`, `categorie`, `prix`, `vendu`) VALUES (NULL, '0', '0', '$nom', '$etat', '$image', '$description', '$categorie', '$prix', '0')";
@@ -350,7 +351,7 @@
                 echo "<div class='alert alert-success alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Succes!</strong> Vous avez bien ajouté $nom à votre panier ! </div>";
 
             }
-            
+
 
         ?>
                            
