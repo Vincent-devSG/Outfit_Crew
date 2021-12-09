@@ -47,7 +47,7 @@
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="votrecompte_acheteur.php"><span class="glyphicon glyphicon-user"></span> Votre Compte</a></li>
+                    <li><a href="votrecompte_vendeur.php"><span class="glyphicon glyphicon-user"></span> Votre Compte</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Panier</a></li>
                 </ul>
             </div>
@@ -102,7 +102,7 @@
         <div class="row">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
-                <input id="ajouter_obj" type="submit" class="btn btn-default btn-block" value="Ajouter un objet à vendre">
+                <a href="ajouter_objet.php" id="ajouter_obj" class="btn btn-default btn-block"> Ajouter un objet à vendre </a>
             </div>
             <div class="col-sm-4"></div>
         </div>
@@ -112,7 +112,7 @@
         <div class="row">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
-                <input id="supprimer_obj" type="submit" class="btn btn-default btn-block" value="Supprimer un objet en vente">
+                <a href="supprimer_objet.php" id="supprimer_obj" class="btn btn-default btn-block"> Supprimer un de vos objet en vente </a>
             </div>
             <div class="col-sm-4"></div>
         </div>
