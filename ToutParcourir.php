@@ -207,6 +207,7 @@
             $db_found = mysqli_select_db($db_handle,$database);
 
             $sql = "SELECT * FROM objet";
+            $sql2 ="";
 
             //pour les types
 
@@ -263,9 +264,10 @@
             echo "<div class= 'thumbnail'>";    
             
             $image = $data['photo'];
-            echo "<img src='$image' height='300' width='200' data-toggle='modal' data-target='#myModal'>";
+            $ID = $data['ID'];
+            echo "<img src='$image' height='300' width='200' data-toggle='modal' data-target='#$ID'>";
             //////MODAL//////////
-            echo "<div id='myModal' class='modal fade' role='dialog'>";
+            echo "<div id='$ID' class='modal fade' role='dialog'>";
             echo "<div class='modal-dialog'>";
 
                 
@@ -278,7 +280,7 @@
             echo "  <p>Souhaitez vous ajouter cet objet au Panier?</p>";
             ///////affichage du produit////////
             
-            echo "<img src='$image' height='300' width='200' data-toggle='modal' data-target='#myModal'>";
+            echo "<img src='$image' height='300' width='200' data-toggle='modal' data-target='#$ID'>";
             echo "<br>" .$data['nom'];
             echo "<br>" .$data['description'];
             echo "<br>" .$data['etat'];
@@ -288,7 +290,31 @@
             ////////////////////////////////////////////////////////
             echo " </div>";
             echo " <div class='modal-footer'>";
-            echo " <button type='button' class='btn btn-info' data-dismiss='modal'>Ajouter</button>";
+            echo " <button type='button' class='btn btn-info' data-dismiss='modal' name ='AjouterPanier' onclick='AjouterPanier'>Ajouter</button>";
+
+            //si le bouton est appuyé
+            $AjouterPanier =  isset($_POST["AjouterPanier"])? $_POST["AjouterPanier"] : "";
+            if($AjouterPanier =='AjouterPanier')
+            {
+                echo "<br>L objet a bien ete ajoute au panier ";
+
+                $nom = $data['nom'];
+                $etat = $data['etat'];
+                $description = $data['photo'];
+                $categorie = $data['categorie'];
+                $prix = $data['prix'];
+
+
+                $sql2 = "INSERT INTO `panier` (`ID`, `ID_vendeur`, `ID_acheteur`, `nom`, `etat`, `photo`, `description`, `categorie`, `prix`, `vendu`) VALUES (NULL, '0', '0', '$nom', '$etat', '$image, '$description', '$categorie', '$prix', '0')";
+
+                $result2 = mysqli_query($db_handle,$sql2);
+                
+            }
+            else
+            {
+                echo "<br> pas d ajout ";
+            }
+
             echo "</div>";
             echo "</div>";
 
