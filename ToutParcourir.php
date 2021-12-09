@@ -290,9 +290,19 @@
             ////////////////////////////////////////////////////////
             echo " </div>";
             echo " <div class='modal-footer'>";
-            echo " <button type='button' class='btn btn-info' data-dismiss='modal' name ='AjouterPanier' onclick='AjouterPanier'>Ajouter</button>";
+            echo "<form action='ToutParcourir.php' method='post'>";
 
+            echo "<table align='center'>";
+            echo "<tr>";
+            echo"  <td colspan='2' align='center'><button type='submit' name='AjouterPanier' value='AjouterPanier'>Ajout</button></td>";
+            echo" </tr>";
+            echo" <tr><td><br></td></tr>";
+            echo "</table>";
+
+            //echo " <button type='button' class='btn btn-info' data-dismiss='modal' name ='AjouterPanier' value='AjouterPanier'>Ajouter</button>";
+            echo "</form>";
             //si le bouton est appuyé
+            $AjouterPanier ="";
             $AjouterPanier =  isset($_POST["AjouterPanier"])? $_POST["AjouterPanier"] : "";
             if($AjouterPanier =='AjouterPanier')
             {
@@ -300,12 +310,23 @@
 
                 $nom = $data['nom'];
                 $etat = $data['etat'];
-                $description = $data['photo'];
+                $description = $data['description'];
                 $categorie = $data['categorie'];
                 $prix = $data['prix'];
 
 
-                $sql2 = "INSERT INTO `panier` (`ID`, `ID_vendeur`, `ID_acheteur`, `nom`, `etat`, `photo`, `description`, `categorie`, `prix`, `vendu`) VALUES (NULL, '0', '0', '$nom', '$etat', '$image, '$description', '$categorie', '$prix', '0')";
+                echo "<br>" .$nom;
+                echo "<br>" .$etat;
+                echo "<br>" .$description;
+                echo "<br>" .$prix;
+
+
+                $sql2 = "INSERT INTO `panier` (`ID`, `ID_vendeur`, `ID_acheteur`, `nom`, `etat`, `photo`, `description`, `categorie`, `prix`, `vendu`) VALUES (NULL, '0', '0', '$nom', '$etat', '$image', '$description', '$categorie', '$prix', '0')";
+
+                //$sql2 = "INSERT INTO `panier` (`ID`, `ID_vendeur`, `Id_acheteur`, `nom`, `etat`, `photo`, `description`, `categorie`, `prix`, `vendu`) VALUES (NULL, '0', '0', '$nom', '$etat', '', '', '', '', '')";
+
+                echo "<br>" .$sql2;
+                
 
                 $result2 = mysqli_query($db_handle,$sql2);
                 
