@@ -97,7 +97,7 @@
 <div class="header2">
         <h2><div class="well">Votre Panier</div></h2>
     </div>
-</div>
+</div>  
 </div> <!-- fin du slide -->
 
 <br><br>
@@ -153,14 +153,45 @@
                 echo "<td></td>";
                 echo "<td></td>";
                 echo "<td>". $prixTotal ."</td>";
-            echo "</tr>";
+            echo "</tr>";      
+       
+           echo "</body>";
+           echo "</table>";
 
-        ?>
+        echo "<div class='col-sm-12 text-center'>";
+        echo "<button type ='button' class='btn btn-info' data-toggle='modal' data-target='#myModal'>Payer</button>";
 
-    </body>
-</table>
+        //on vide le panier
 
+        $sql2 = "DELETE FROM panier";
+        $result2 = mysqli_query($db_handle,$sql2);
 
+          echo "<div id='myModal' class='modal fade' role='dialog'>";
+          echo "<div class='modal-dialog'>";
+
+            
+            echo "<div class='modal-content'>";
+            echo "<div class='modal-body'>";
+             echo "<strong>Le Payement a été effectué. Vous allez être redirigé vers l'Accueil.</strong>";
+             echo "</div>";
+             echo "<div class='modal-footer'>";
+             echo "<a href='accueil.php' class='btn btn-info' role='button'>Fermer</a>";
+           //  echo "<button type='button' class='btn btn-info' data-dismiss='modal'><a href='accueil.php'>Close</a></button>";
+             echo "</div>";
+            echo "</div>";
+
+          echo "</div>";
+        echo "</div>";
+
+        echo "</div>";
+
+        echo"<br><br>";
+        echo"<br><br>";
+
+        
+
+        mysqli_close($db_handle);
+ ?>
 
 <footer class="container-fluid text-center">Copyright &copy; 2021 Outfit Crew<br>
     <a href="mailto:vincent.pompei@edu.ece.fr">vincent.pompei@edu.ece.fr</a>
