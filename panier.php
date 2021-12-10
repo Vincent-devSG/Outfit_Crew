@@ -31,42 +31,40 @@
                if($dataVerifPanier != "")
                {
 
-                    $sql = "SELECT ID FROM connexion";
-                    $result = mysqli_query($db_handle,$sql);
+                $sqlVerifPanier =  "SELECT * FROM panier";
+                $resultVerifPanier = mysqli_query($db_handle,$sqlVerifPanier);
 
-                    $data = mysqli_fetch_assoc($result);
-
-                    $sql2 = "SELECT * FROM acheteur WHERE ID =" .$data['ID'];
-                    $result2 = mysqli_query($db_handle,$sql2);
-
-                    $data2 = mysqli_fetch_assoc($result2);
-
-
-                    $to = $data2['mail'];
-                    echo "".$to;
-
-                    $sql36 = "SELECT nom, ID_acheteur FROM panier";
-                    $result36 = mysqli_query($db_handle,$sql36);
-                    
-
-                    while($data36 = mysqli_fetch_assoc($result36))
+                    while($dataVerifPanier = mysqli_fetch_assoc($resultVerifPanier))
                     {
-                        
-                        if ($data36['ID_acheteur'] == $data2['ID']) {
-                            echo " j'suis là";
-                            $message .= 'Objet Achete :' .$data36['nom'] ." Prix : " ."\n";
-                            
-                        }
+
+                            $nom = $dataVerifPanier['nom'];
+                            $etat = $dataVerifPanier['etat'];
+                            $description = $dataVerifPanier['description'];
+                            $categorie = $dataVerifPanier['categorie'];
+                            $prix = $dataVerifPanier['prix'];
+                            $image = $dataVerifPanier['photo'];
+                            date_default_timezone_set('Europe/Paris');
+                            $date = date('d-m-y h:i:s');
+
+                           /* echo $nom;
+                            echo $etat;
+                            echo $description;
+                            echo $categorie;
+                            echo $prix;
+                            echo $nom;*/
+                            //echo $date;
+
+                            echo "<br>";
+  
+
+
+                              //envoie une notif
+                    $sqlNotif = "INSERT INTO `notification` (`ID`, `ID_vendeur`, `ID_acheteur`, `nom`, `etat`, `photo`, `description`, `categorie`, `prix`, `vendu`,`date`) VALUES (NULL, '0', '$IdUtilisateur', '$nom', '$etat', '$image', '$description', '$categorie', '$prix', '0','$date')";
+                    $resultNotif = mysqli_query($db_handle,$sqlNotif);
                          
                     }
 
-                    $subject = 'OUEEEEEEEE';
-                    $headers = 'From: webmaster@example.com' . "\r\n" .
-                    'Reply-To: webmaster@example.com' . "\r\n" .
-                    'X-Mailer: PHP/' . phpversion();
-                    mail($to, $subject, $message, $headers); 
-
-
+                   
 
                     $sql2 = "DELETE FROM panier";
                     $result2 = mysqli_query($db_handle,$sql2);

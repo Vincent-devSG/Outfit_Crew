@@ -109,10 +109,10 @@
 
         if($Acheteur == '1') //si c est un acheteur
         {
-            $sqlNotification = "SELECT * FROM notification WHERE ID = '$IdUtilisateur' ";
+            $sqlNotification = "SELECT * FROM notification WHERE ID_acheteur = '$IdUtilisateur' ";
             $resultatNotification = mysqli_query($db_handle,$sqlNotification);
 
-            echo "<div = TableauTexteCentre>";
+            echo "<table>";
         while($data = mysqli_fetch_assoc($resultatNotification))
             {
                 $image = $data['photo'];
@@ -124,13 +124,11 @@
                 echo "<td>". $data['categorie']."</td>";
                 echo "<td><img src='$image' height='150' width='100'></td>";
                 echo "<td>". $data['prix']."</td>";
-                echo "<form action= 'panier.php' method='post'>";
-                echo "<td><button type='submit' class='close' name ='SuppObjet' value ='$ID'>&times;</button><td>";
-                echo "</form>";
+                echo "<td>". $data['date']."</td>";
                 echo "</tr>";
-                $prixTotal += $data['prix'];
+                
             }
-            echo "</div>";
+            echo "</table>";
 
         }    
 
