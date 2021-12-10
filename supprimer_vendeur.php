@@ -23,7 +23,7 @@
             {
                 $sql = "DELETE FROM `vendeur` WHERE pseudo = '$pseudo'";
                 $result = mysqli_query($db_handle,$sql);
-                echo "<div class='alert alert-success alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Succes!</strong> Vous avez supprimé ce vendeur !!!</div>";
+                //echo "<div class='alert alert-success alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Succes!</strong> Vous avez supprimé ce vendeur !!!</div>";
             }
             else
             {

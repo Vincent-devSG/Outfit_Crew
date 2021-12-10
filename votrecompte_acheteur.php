@@ -1,3 +1,34 @@
+<?php 
+
+     //echo "<br> on récupère les infos";
+     //on récupère les infos
+     
+     $database = "bdd_shop";
+
+    //connectez-vous dans votre BDD
+    //Rappel: votre serveur = localhost | login = root | mdp = "" <rien>
+    $db_handle = mysqli_connect('localhost','root','');
+    $db_found = mysqli_select_db($db_handle,$database);
+
+    $valider = isset($_POST["deco"])? $_POST["deco"] : ""; //mdp
+    $test="0";
+
+
+
+    if($valider == "1")
+    {
+        $sql = "UPDATE connexion SET admin ='0', vendeur ='0', acheteur='0', ID='0'";
+        $result = mysqli_query($db_handle,$sql);
+        header('Location: login.php');
+    }
+
+
+
+?>
+
+
+
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -71,15 +102,62 @@
                                 <div class="position-relative">
                                     <img src="profil.png" class="img-circle" style="width:72px;height:72px;" />
                                 </div>
-                                <h4 id="thumbnail-label">User</h4>   
+
+
+                                <?php
+
+                                        $sql = "SELECT ID FROM connexion";
+                                        $result = mysqli_query($db_handle,$sql);
+
+                                        $data = mysqli_fetch_assoc($result);
+
+                                        $sql2 = "SELECT * FROM acheteur WHERE ID =" .$data['ID'];
+                                        $result2 = mysqli_query($db_handle,$sql2);
+
+                                        $data2 = mysqli_fetch_assoc($result2);
+
+                                        echo "<h4 id='thumbnail-label'>".$data2['pseudo']; 
+                                        echo "</h4> <br>";
+
+                                    ?>
+
+                                   
 
                             </div>
                             <div class="caption card-footer text-left">
-                                <p><span class="glyphicon glyphicon-user"></span> Nom : <br>
-                                    Prenom : </p>
 
-                                <p><span class="glyphicon glyphicon-envelope"></span> Mail : </p>  
-                                <p><span class="glyphicon glyphicon-phone"></span> Téléphone :</p>    
+
+
+                                <p><span class="glyphicon glyphicon-user"></span>
+
+
+                                    <?php
+
+                                        $sql = "SELECT ID FROM connexion";
+                                        $result = mysqli_query($db_handle,$sql);
+
+                                        $data = mysqli_fetch_assoc($result);
+
+                                        $sql2 = "SELECT * FROM acheteur WHERE ID =" .$data['ID'];
+                                        $result2 = mysqli_query($db_handle,$sql2);
+
+                                        $data2 = mysqli_fetch_assoc($result2);
+
+                                        echo "Nom :" .$data2['nom']; echo "<br>";
+                                        echo "Prenom :".$data2['prenom']; echo" </p>"; 
+
+
+                                        echo "<p><span class='glyphicon glyphicon-envelope'></span> Mail : " .$data2['mail']; echo" </p>  ";
+
+
+                                        echo "<p><span class='glyphicon glyphicon-phone'></span> Téléphone : ".$data2['tel']; echo "</p>";
+
+                                    ?>
+
+                                    
+
+                                
+                                   
                             </div>
                         </div>
                     </div>
@@ -98,18 +176,27 @@
             <div class="col-sm-8">
                 <table class="table table-striped">
                     <tbody>
-                        <tr>
-                            <td>Adresse : </td>
-                        </tr>
-                        <tr>
-                            <td>Ville : </td>
-                        </tr>
-                        <tr>
-                            <td>Code Postal :</td>
-                        </tr>
-                        <tr>
-                            <td>Pays :</td>
-                        </tr>
+
+                        <?php
+
+                        $sql = "SELECT ID FROM connexion";
+                        $result = mysqli_query($db_handle,$sql);
+
+                        $data = mysqli_fetch_assoc($result);
+
+                        $sql2 = "SELECT * FROM acheteur WHERE ID =" .$data['ID'];
+                        $result2 = mysqli_query($db_handle,$sql2);
+
+                        $data2 = mysqli_fetch_assoc($result2);
+
+                        echo "<tr><td>Adresse : " .$data2['adresse']; echo "</td></tr>";
+                        echo "<tr><td>Ville : " .$data2['ville']; echo "</td></tr>";
+
+                        echo "<tr><td>Code Postal : " .$data2['CP']; echo "</td></tr>";
+                        echo "<tr><td>Pays : " .$data2['pays']; echo "</td></tr>";
+
+                        ?>
+
                     </tbody>
                 </table>
             </div>
@@ -124,7 +211,11 @@
         <div class="row">
             <div class="col-sm-5"></div>
             <div class="col-sm-2">
-                <input type="submit" class="btn btn-danger btn-block" value="Déconnexion">
+
+                <form method="post">
+                    <button type="submit" class="btn btn-danger btn-block" name="deco" value="1">Déconnexion</button>
+                </form>
+                
             </div>
             <div class="col-sm-5"></div>
         </div>

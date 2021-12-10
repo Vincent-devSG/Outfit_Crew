@@ -1,3 +1,37 @@
+<?php 
+
+     //echo "<br> on récupère les infos";
+     //on récupère les infos
+     
+     $database = "bdd_shop";
+
+    //connectez-vous dans votre BDD
+    //Rappel: votre serveur = localhost | login = root | mdp = "" <rien>
+    $db_handle = mysqli_connect('localhost','root','');
+    $db_found = mysqli_select_db($db_handle,$database);
+
+    $valider = isset($_POST["deco"])? $_POST["deco"] : ""; //mdp
+    $test="0";
+
+
+
+    if($valider == "1")
+    {
+        $sql = "UPDATE connexion SET admin ='0', vendeur ='0', acheteur='0', ID='0'";
+        $result = mysqli_query($db_handle,$sql);
+        header('Location: login.php');
+    }
+
+
+
+?>
+
+
+
+
+
+
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -122,7 +156,9 @@
         <div class="row">
             <div class="col-sm-5"></div>
             <div class="col-sm-2">
-                <input type="submit" class="btn btn-danger btn-block" value="Déconnexion">
+                <form method="post">
+                    <button type="submit" class="btn btn-danger btn-block" name="deco" value="1">Déconnexion</button>
+                </form>
             </div>
             <div class="col-sm-5"></div>
         </div>
