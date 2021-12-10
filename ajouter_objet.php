@@ -34,6 +34,7 @@
                 $sql2 = "INSERT INTO `objet` (`ID`, `ID_vendeur`, `nom`, `etat`, `photo`, `description`, `categorie`, `prix`, `vendu`) VALUES (NULL, '0', '$nom', '$etat', '$photo', '$description', '$categorie', '$prix', '0')";
 
                 $result = mysqli_query($db_handle,$sql2);
+
                
 
                 echo "<div class='alert alert-success alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Succes!</strong> Vous Vous avez enregistré un nouveau objet à vendre !!!</div>";

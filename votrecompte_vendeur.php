@@ -2,8 +2,8 @@
 
      //echo "<br> on récupère les infos";
      //on récupère les infos
-     
-     $database = "bdd_shop";
+
+    $database = "bdd_shop";
 
     //connectez-vous dans votre BDD
     //Rappel: votre serveur = localhost | login = root | mdp = "" <rien>
@@ -17,6 +17,8 @@
 
     if($valider == "1")
     {
+
+        
         $sql = "UPDATE connexion SET admin ='0', vendeur ='0', acheteur='0', ID='0'";
         $result = mysqli_query($db_handle,$sql);
         header('Location: login.php');
