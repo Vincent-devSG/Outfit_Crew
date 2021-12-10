@@ -62,6 +62,10 @@
 
             $message.= '<h4> Prix total : ' .$prixTotal ."</h4>";
 
+            $message.= "Livraison a ".$data2['nom']." ".$data2['prenom']."<br>";
+            $message.= "".$data2['adresse']."<br>";
+            $message.= "".$data2['ville']." ".$data2['CP']."<br>" ;
+
             $subject = 'Votre commande chez Outfit Crew';
             $From  = "From:nom@domaine.com\n";
             $From .= "MIME-version: 1.0\n";
@@ -116,7 +120,7 @@
 
                         $sql2 = "DELETE FROM panier";
                         $result2 = mysqli_query($db_handle,$sql2);
-                        //header('Location: accueil.php');
+                        header('Location: accueil.php');
                     }
                else //le panier est vide
                {
