@@ -1,3 +1,34 @@
+<?php
+        $database = "bdd_shop";
+        //echo $database;
+
+        $db_handle = mysqli_connect('localhost','root','');
+        $db_found = mysqli_select_db($db_handle,$database);
+
+        $Paiement =  isset($_POST["Paiement"])? $_POST["Paiement"] : "";
+        $SuppObjet =  isset($_POST["SuppObjet"])? $_POST["SuppObjet"] : "";
+        //echo "Paiment: ".$Paiement;
+
+
+
+        $sqlObjet = "DELETE FROM panier WHERE ID = '$SuppObjet'";
+        $resultObjet = mysqli_query($db_handle,$sqlObjet);
+
+        if($Paiement == 'Paiement')//si le bouton de payement a été appuyé
+            {
+                $sql2 = "DELETE FROM panier";
+                $result2 = mysqli_query($db_handle,$sql2);
+                header('Location: accueil.php');
+            }
+        
+
+        mysqli_close($db_handle);
+
+    ?>
+
+
+
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -134,6 +165,7 @@
             while($data =  mysqli_fetch_assoc($result))
             {
                 $image = $data['photo'];
+                $ID = $data['ID'];
                 //echo $image;
                 echo "<tr>";
                 echo "<td>". $data['nom']."</td>";
@@ -141,6 +173,9 @@
                 echo "<td>". $data['categorie']."</td>";
                 echo "<td><img src='$image' height='150' width='100'></td>";
                 echo "<td>". $data['prix']."</td>";
+                echo "<form action= 'panier.php' method='post'>";
+                echo "<td><button type='submit' class='close' name ='SuppObjet' value ='$ID'>&times;</button><td>";
+                echo "</form>";
                 echo "</tr>";
                 $prixTotal += $data['prix'];
             }
@@ -158,40 +193,43 @@
            echo "</body>";
            echo "</table>";
 
-        echo "<div class='col-sm-12 text-center'>";
-        echo "<button type ='button' class='btn btn-info' data-toggle='modal' data-target='#myModal'>Payer</button>";
 
-        //on vide le panier
+           mysqli_close($db_handle);
+           ?>
 
-        $sql2 = "DELETE FROM panier";
-        $result2 = mysqli_query($db_handle,$sql2);
+        <div class="col-sm-12 text-center">
+        
+        <button type ='button' class="btn btn-info" data-toggle="modal" data-target="#myModal">Payer</button>
+        
 
-          echo "<div id='myModal' class='modal fade' role='dialog'>";
-          echo "<div class='modal-dialog'>";
+
+          <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
 
             
-            echo "<div class='modal-content'>";
-            echo "<div class='modal-body'>";
-             echo "<strong>Le Payement a été effectué. Vous allez être redirigé vers l'Accueil.</strong>";
-             echo "</div>";
-             echo "<div class='modal-footer'>";
-             echo "<a href='accueil.php' class='btn btn-info' role='button'>Fermer</a>";
-           //  echo "<button type='button' class='btn btn-info' data-dismiss='modal'><a href='accueil.php'>Close</a></button>";
-             echo "</div>";
-            echo "</div>";
+            <div class="modal-content">
+            <div class="modal-body">
+            <strong>Le Payement a été effectué. Vous allez être redirigé vers l'Accueil.</strong>
+            </div>
+            <div class="modal-footer">
+            <form action= "panier.php" method="post">
+            <a href="accueil.php"><input type="submit" name ="Paiement" value ="Paiement" class="btn btn-info"></button></a>
+            </form>
+            </div>
+            </div>
 
-          echo "</div>";
-        echo "</div>";
+          </div>
+        </div>
 
-        echo "</div>";
+        </div>
 
-        echo"<br><br>";
-        echo"<br><br>";
+        <br><br>
+        <br><br>
 
         
 
-        mysqli_close($db_handle);
- ?>
+        
+ 
 
 <footer class="container-fluid text-center">Copyright &copy; 2021 Outfit Crew<br>
     <a href="mailto:vincent.pompei@edu.ece.fr">vincent.pompei@edu.ece.fr</a>
@@ -203,3 +241,4 @@
 </div>
 </body>
 </html>
+
