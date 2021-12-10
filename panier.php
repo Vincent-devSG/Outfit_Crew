@@ -16,9 +16,22 @@
 
         if($Paiement == 'Paiement')//si le bouton de payement a été appuyé
             {
-                $sql2 = "DELETE FROM panier";
-                $result2 = mysqli_query($db_handle,$sql2);
-                header('Location: accueil.php');
+                //on vérifie que le panier n est pas vide
+               $sqlVerifPanier =  "SELECT * FROM panier";
+               $resultVerifPanier = mysqli_query($db_handle,$sqlVerifPanier);
+               $dataVerifPanier =  mysqli_fetch_assoc($resultVerifPanier);
+               if($dataVerifPanier != "")
+               {
+                    $sql2 = "DELETE FROM panier";
+                    $result2 = mysqli_query($db_handle,$sql2);
+                    header('Location: accueil.php');
+               }
+               else //le panier est vide
+               {
+                 echo "<div class='alert alert-danger alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Erreur!</strong> Votre Panier est vide ! Paiement impossible</div>";
+               }
+
+                
             }
         
 
