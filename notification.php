@@ -91,6 +91,16 @@
         </div>
     </nav>
 
+    <div class="row slide">
+        <div class="container" align="center">
+            <div class="col-sm-12">
+                <div  class="jumbotron">
+                    <h2><strong>Vos notifications</strong></h2>
+                </div>
+             </div>
+
+        </div>
+
 
 <?php
 
@@ -112,23 +122,24 @@
             $sqlNotification = "SELECT * FROM notification WHERE ID_acheteur = '$IdUtilisateur' ";
             $resultatNotification = mysqli_query($db_handle,$sqlNotification);
 
-            echo "<table>";
+            echo "<div class='container' align='center'>";
+            
+
         while($data = mysqli_fetch_assoc($resultatNotification))
             {
                 $image = $data['photo'];
                 $ID = $data['ID'];
                 //echo $image;
-                echo "<tr>";
-                echo "<td>". $data['nom']."</td>";
-                echo "<td>". $data['etat']."</td>";
-                echo "<td>". $data['categorie']."</td>";
-                echo "<td><img src='$image' height='150' width='100'></td>";
-                echo "<td>". $data['prix']."</td>";
-                echo "<td>". $data['date']."</td>";
-                echo "</tr>";
-                
+                echo "<div class='slideanim'>";
+                echo "<div id ='Renseignement' class ='jumbotron'>";
+                echo "<strong>Nom</strong>: ". $data['nom'] ." | <strong>Etat</strong>: ". $data['etat'] ." | <strong>Categorie</strong>: ". $data['categorie'] ." | <strong>Prix</strong>: ". $data['prix']. "<br>";
+                echo "<br><img src='$image' height='150' width='100'><br>";
+                echo "<strong><br> Date de l'achat: " .$data['date'] . "</strong>";
+                echo "</div>";
+                echo "</div>";
             }
-            echo "</table>";
+            
+            echo "</div>";
 
         }    
 
