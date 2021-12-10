@@ -115,7 +115,28 @@
 
                             </div>
                             <div class="caption card-footer text-left">
-                                <p><span class="glyphicon glyphicon-user"></span> Pseudo :  </p>      
+
+
+
+                                <?php
+
+                                        $sql = "SELECT ID FROM connexion";
+                                        $result = mysqli_query($db_handle,$sql);
+
+                                        $data = mysqli_fetch_assoc($result);
+
+                                        $sql2 = "SELECT * FROM admin WHERE ID =" .$data['ID'];
+                                        $result2 = mysqli_query($db_handle,$sql2);
+
+                                        $data2 = mysqli_fetch_assoc($result2);
+
+                                        echo "<p><span class='glyphicon glyphicon-user'></span> Pseudo : ".$data2['pseudo']; echo "</p>";  
+                                        echo "</h4> <br>";
+
+                                    ?>
+
+
+                                      
                             </div>
                         </div>
                     </div>
