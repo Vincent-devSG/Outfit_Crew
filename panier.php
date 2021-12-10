@@ -17,34 +17,82 @@
             $dataIdUtlisateur = mysqli_fetch_assoc($resultatIdUtilisateur);
             $Acheteur = $dataIdUtlisateur['acheteur'];
             $IdUtilisateur = $dataIdUtlisateur['ID'];
+            $prixTotal=0;
 
 
         $sqlObjet = "DELETE FROM panier WHERE ID = '$SuppObjet'";
         $resultObjet = mysqli_query($db_handle,$sqlObjet);
 
         if($Paiement == 'Paiement')//si le bouton de payement a été appuyé
+        {
+
+
+            $sql = "SELECT ID FROM connexion";
+            $result = mysqli_query($db_handle,$sql);
+
+            $data = mysqli_fetch_assoc($result);
+
+            $sql2 = "SELECT * FROM acheteur WHERE ID =" .$data['ID'];
+            $result2 = mysqli_query($db_handle,$sql2);
+
+            $data2 = mysqli_fetch_assoc($result2);
+
+
+            $to = $data2['mail'];
+            $message="";
+
+
+            $sql36 = "SELECT * FROM panier";
+            $result36 = mysqli_query($db_handle,$sql36);
+
+            while($data36 = mysqli_fetch_assoc($result36))
             {
+
+
+                if ($data36['Id_acheteur'] == $data2['ID']) {
+
+                    $ID = $data['ID'];
+                    $prixTotal += $data36['prix'];
+                    $message .= '<h5> Objet Achete : ' .$data36['nom'] ."    Prix : " .$data36['prix'] ."  Euros TTC   "  ."</h5>"."\n";
+
+                } 
+                
+
+            }
+
+            $message.= '<h4> Prix total : ' .$prixTotal ."</h4>";
+
+            $subject = 'Votre commande chez Outfit Crew';
+            $From  = "From:nom@domaine.com\n";
+            $From .= "MIME-version: 1.0\n";
+            $From .= "Content-type: text/html; charset= iso-8859-1\n";
+
+            mail($to, $subject, $message, $From); 
+
+
+
+
                 //on vérifie que le panier n est pas vide
-               $sqlVerifPanier =  "SELECT * FROM panier";
-               $resultVerifPanier = mysqli_query($db_handle,$sqlVerifPanier);
-               $dataVerifPanier =  mysqli_fetch_assoc($resultVerifPanier);
-               if($dataVerifPanier != "")
-               {
+            $sqlVerifPanier =  "SELECT * FROM panier";
+            $resultVerifPanier = mysqli_query($db_handle,$sqlVerifPanier);
+            $dataVerifPanier =  mysqli_fetch_assoc($resultVerifPanier);
+            if($dataVerifPanier != "")
+            {
 
                 $sqlVerifPanier =  "SELECT * FROM panier";
                 $resultVerifPanier = mysqli_query($db_handle,$sqlVerifPanier);
 
-                    while($dataVerifPanier = mysqli_fetch_assoc($resultVerifPanier))
-                    {
+                while($dataVerifPanier = mysqli_fetch_assoc($resultVerifPanier))
+                {
 
-                            $nom = $dataVerifPanier['nom'];
-                            $etat = $dataVerifPanier['etat'];
-                            $description = $dataVerifPanier['description'];
-                            $categorie = $dataVerifPanier['categorie'];
-                            $prix = $dataVerifPanier['prix'];
-                            $image = $dataVerifPanier['photo'];
-                            date_default_timezone_set('Europe/Paris');
-                            $date = date('d-m-y h:i:s');
+                    $nom = $dataVerifPanier['nom'];
+                    $etat = $dataVerifPanier['etat'];
+                    $description = $dataVerifPanier['description'];
+                    $categorie = $dataVerifPanier['categorie'];
+                    $prix = $dataVerifPanier['prix'];
+                    $image = $dataVerifPanier['photo'];
+                    date_default_timezone_set('Europe/Paris');
+                    $date = date('d-m-y h:i:s');
 
                            /* echo $nom;
                             echo $etat;
@@ -55,29 +103,29 @@
                             //echo $date;
 
                             echo "<br>";
-  
+
 
 
                               //envoie une notif
-                    $sqlNotif = "INSERT INTO `notification` (`ID`, `ID_vendeur`, `ID_acheteur`, `nom`, `etat`, `photo`, `description`, `categorie`, `prix`, `vendu`,`date`) VALUES (NULL, '0', '$IdUtilisateur', '$nom', '$etat', '$image', '$description', '$categorie', '$prix', '0','$date')";
-                    $resultNotif = mysqli_query($db_handle,$sqlNotif);
-                         
+                            $sqlNotif = "INSERT INTO `notification` (`ID`, `ID_vendeur`, `ID_acheteur`, `nom`, `etat`, `photo`, `description`, `categorie`, `prix`, `vendu`,`date`) VALUES (NULL, '0', '$IdUtilisateur', '$nom', '$etat', '$image', '$description', '$categorie', '$prix', '0','$date')";
+                            $resultNotif = mysqli_query($db_handle,$sqlNotif);
+
+                        }
+
+
+
+                        $sql2 = "DELETE FROM panier";
+                        $result2 = mysqli_query($db_handle,$sql2);
+                        //header('Location: accueil.php');
                     }
-
-                   
-
-                    $sql2 = "DELETE FROM panier";
-                    $result2 = mysqli_query($db_handle,$sql2);
-                    header('Location: accueil.php');
-               }
                else //le panier est vide
                {
-                 echo "<div class='alert alert-danger alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Erreur!</strong> Votre Panier est vide ! Paiement impossible</div>";
+                   echo "<div class='alert alert-danger alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Erreur!</strong> Votre Panier est vide ! Paiement impossible</div>";
                }
 
-                
-            }
-        
+
+           }
+
 
         mysqli_close($db_handle);
 
