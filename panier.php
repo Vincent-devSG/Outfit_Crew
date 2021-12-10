@@ -51,11 +51,10 @@
 
                     while($data36 = mysqli_fetch_assoc($result36))
                     {
-                        $message .= ' OBJET Achete :' .$data36['nom'];
+                        
                         if ($data36['ID_acheteur'] == $data2['ID']) {
                             echo " j'suis là";
-
-                            $message .='JSUIS LA';
+                            $message .= 'Objet Achete :' .$data36['nom'] ." Prix : " ."\n";
                             
                         }
                          
@@ -67,7 +66,7 @@
                     'X-Mailer: PHP/' . phpversion();
                     mail($to, $subject, $message, $headers); 
 
-                    
+
 
                     $sql2 = "DELETE FROM panier";
                     $result2 = mysqli_query($db_handle,$sql2);
