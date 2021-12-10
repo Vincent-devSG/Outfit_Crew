@@ -169,7 +169,13 @@
             $db_handle = mysqli_connect('localhost','root','');
             $db_found = mysqli_select_db($db_handle,$database);
 
-            $sql = "SELECT * FROM panier";
+            //on récupère l ID de l Utilisateur
+            $sqlIdUtilisateur = "SELECT * FROM connexion";
+            $resultatIdUtilisateur = mysqli_query($db_handle,$sqlIdUtilisateur);
+            $dataIdUtlisateur = mysqli_fetch_assoc($resultatIdUtilisateur);
+            $IdUtilisateur = $dataIdUtlisateur['ID'];
+
+            $sql = "SELECT * FROM panier WHERE ID_acheteur = '$IdUtilisateur'";
             $result = mysqli_query($db_handle,$sql);
 
             $prixTotal =0;

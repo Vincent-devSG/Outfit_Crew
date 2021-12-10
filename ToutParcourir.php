@@ -334,6 +334,17 @@
             //echo $AjouterPanier;
             $sqlObjet = "SELECT * FROM objet WHERE ID = '$AjouterPanier'";
             $resultObjet = mysqli_query($db_handle,$sqlObjet);
+
+            //on récupère l ID de l'utilisateur
+            $sqlIdUtilisateur = "SELECT * FROM connexion";
+            $resultatIdUtilisateur = mysqli_query($db_handle,$sqlIdUtilisateur);
+            $dataIdUtlisateur = mysqli_fetch_assoc($resultatIdUtilisateur);
+            $Acheteur = $dataIdUtlisateur['acheteur'];
+            $IdUtilisateur = $dataIdUtlisateur['ID'];
+
+            if($Acheteur == '1') //si c est un compte acheteur
+            {
+
             while ($data = mysqli_fetch_assoc($resultObjet)) {
 
                 $nom = $data['nom'];
@@ -344,13 +355,16 @@
                 $image = $data['photo'];
 
 
-                $sql2 = "INSERT INTO `panier` (`ID`, `ID_vendeur`, `ID_acheteur`, `nom`, `etat`, `photo`, `description`, `categorie`, `prix`, `vendu`) VALUES (NULL, '0', '0', '$nom', '$etat', '$image', '$description', '$categorie', '$prix', '0')";
+                $sql2 = "INSERT INTO `panier` (`ID`, `ID_vendeur`, `ID_acheteur`, `nom`, `etat`, `photo`, `description`, `categorie`, `prix`, `vendu`) VALUES (NULL, '0', '$IdUtilisateur', '$nom', '$etat', '$image', '$description', '$categorie', '$prix', '0')";
                 $result2 = mysqli_query($db_handle,$sql2);
 
                 
                 echo "<div class='alert alert-success alert-dismissible'> <a href='#'class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Succes!</strong> Vous avez bien ajouté $nom à votre panier ! </div>";
 
             }
+
+              }
+
 
 
         ?>
