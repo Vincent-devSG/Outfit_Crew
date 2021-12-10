@@ -11,6 +11,14 @@
 
 
 
+        //on récupère l ID de l'utilisateur
+            $sqlIdUtilisateur = "SELECT * FROM connexion";
+            $resultatIdUtilisateur = mysqli_query($db_handle,$sqlIdUtilisateur);
+            $dataIdUtlisateur = mysqli_fetch_assoc($resultatIdUtilisateur);
+            $Acheteur = $dataIdUtlisateur['acheteur'];
+            $IdUtilisateur = $dataIdUtlisateur['ID'];
+
+
         $sqlObjet = "DELETE FROM panier WHERE ID = '$SuppObjet'";
         $resultObjet = mysqli_query($db_handle,$sqlObjet);
 
@@ -22,6 +30,20 @@
                $dataVerifPanier =  mysqli_fetch_assoc($resultVerifPanier);
                if($dataVerifPanier != "")
                {
+                    //on envoye une notification d achat à l utilisateur
+
+                    $nom = $data['nom'];
+                    $etat = $data['etat'];
+                    $description = $data['description'];
+                    $categorie = $data['categorie'];
+                    $prix = $data['prix'];
+                    $image = $data['photo'];
+                    date_default_timezone_set('Europe/Paris');
+                    $date = date('d-m-y h:i:s');
+
+                    $sqlNotif = "INSERT INTO `notification` (`ID`, `ID_vendeur`, `ID_acheteur`, `nom`, `etat`, `photo`, `description`, `categorie`, `prix`, `vendu`,`date`) VALUES (NULL, '0', '$IdUtilisateur', '$nom', '$etat', '$image', '$description', '$categorie', '$prix', '0')";
+                    $resultNotif = mysqli_query($db_handle,$sqlNotif);"
+
                     $sql2 = "DELETE FROM panier";
                     $result2 = mysqli_query($db_handle,$sql2);
                     header('Location: accueil.php');
@@ -124,7 +146,7 @@
                 <ul class="nav navbar-nav text-lg">
                     <li><a href="accueil.php">Accueil</a></li>
                     <li><a href="ToutParcourir.php">Tout Parcourir</a></li>
-                    <li><a href="#">Notifications</a></li>
+                    <li><a href="notification.php">Notifications</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

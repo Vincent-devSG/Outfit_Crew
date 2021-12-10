@@ -80,7 +80,7 @@
                 <ul class="nav navbar-nav text-lg">
                     <li><a href="accueil.php">Accueil</a></li>
                     <li><a href="ToutParcourir.php">Tout Parcourir</a></li>
-                    <li><a href="#">Notifications</a></li>
+                    <li><a href="notification.php">Notifications</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
