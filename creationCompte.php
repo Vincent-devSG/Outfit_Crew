@@ -74,7 +74,7 @@ if($enregistrer =='enregistrer')//si on appuie sur enregistrer
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-1"></div>
-                <div class="col-sm-1"><a href="accueil.php"> <img src="logo.png" alt="logo"/></a></div>
+                <div class="col-sm-1"> <img src="logo.png" alt="logo"/></a></div>
                 <div class="col-sm-8 text-center">
                     <h1>Outfit Crew</h1>
                 </div>

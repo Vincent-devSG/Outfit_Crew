@@ -1,3 +1,28 @@
+<?php
+                        //echo "<br> on récupère les infos";
+                        //on récupère les infos
+     
+                        $database = "bdd_shop";
+
+                        //connectez-vous dans votre BDD
+                        //Rappel: votre serveur = localhost | login = root | mdp = "" <rien>
+                        $db_handle = mysqli_connect('localhost','root','');
+                        $db_found = mysqli_select_db($db_handle,$database);
+
+                        $user1="0";
+                        $user2="0";
+                        $user3="0";
+
+                        $sql = "SELECT * FROM connexion";
+                        $result = mysqli_query($db_handle,$sql);
+
+                        $data = mysqli_fetch_assoc($result);
+
+?>
+
+
+
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -83,10 +108,46 @@
                     <li><a href="notification.php">Notifications</a></li>
 
                 </ul>
+
+
+
+
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Votre Compte</a></li>
-                    <li><a href="panier.php"><span class="glyphicon glyphicon-shopping-cart"></span> Panier</a></li>
-                </ul>
+
+                  <?php
+
+                  $user1="0";
+                  $user2="0";
+                  $user3="0";
+
+                  $sql = "SELECT * FROM connexion";
+                  $result = mysqli_query($db_handle,$sql);
+
+                  $data = mysqli_fetch_assoc($result);
+
+                  if ($data['admin']=="1") {
+                    $user1="votrecompte_admin.php";
+
+                    echo "<li><a href= ' $user1 '><span class='glyphicon glyphicon-user'></span> Votre Compte</a></li>";
+                }
+
+                if ($data['vendeur']=="1") {
+                    $user2="votrecompte_vendeur.php";
+
+                    echo "<li><a href= ' $user2 '><span class='glyphicon glyphicon-user'></span> Votre Compte</a></li>";
+                }
+
+                if ($data['acheteur']=="1") {
+                    $user3="votrecompte_acheteur.php";
+
+                    echo "<li><a href= ' $user3 '><span class='glyphicon glyphicon-user'></span> Votre Compte</a></li>";
+                }
+
+
+                ?>
+
+                <li><a href="panier.php"><span class="glyphicon glyphicon-shopping-cart"></span> Panier</a></li>
+            </ul>
             </div>
         </div>
     </nav>

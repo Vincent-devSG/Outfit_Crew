@@ -224,7 +224,45 @@
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Votre Compte</a></li>
+
+                   <?php
+
+                   $database = "bdd_shop";
+                    //echo $database;
+
+                    $db_handle = mysqli_connect('localhost','root','');
+                    $db_found = mysqli_select_db($db_handle,$database);
+
+                    $user1="0";
+                    $user2="0";
+                    $user3="0";
+
+                    $sql_compte = "SELECT * FROM connexion";
+                    $result_compte = mysqli_query($db_handle,$sql_compte);
+
+                    $data_compte = mysqli_fetch_assoc($result_compte);
+
+                    if ($data_compte['admin']=="1") {
+                        $user1="votrecompte_admin.php";
+
+                    echo "<li><a href= ' $user1 '><span class='glyphicon glyphicon-user'></span> Votre Compte</a></li>";
+                    }
+
+                    if ($data_compte['vendeur']=="1") {
+                    $user2="votrecompte_vendeur.php";
+
+                    echo "<li><a href= ' $user2 '><span class='glyphicon glyphicon-user'></span> Votre Compte</a></li>";
+                    }
+
+                    if ($data_compte['acheteur']=="1") {
+                    $user3="votrecompte_acheteur.php";
+
+                    echo "<li><a href= ' $user3 '><span class='glyphicon glyphicon-user'></span> Votre Compte</a></li>";
+                    }
+
+
+                    ?>
+
                     <li><a href="panier.php"><span class="glyphicon glyphicon-shopping-cart"></span> Panier</a></li>
                 </ul>
             </div>
