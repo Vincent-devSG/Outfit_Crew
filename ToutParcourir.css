@@ -7,6 +7,9 @@
 .header {
     padding-top: 1%;
 }
+.well well-sm{
+  text-align: center;
+}
 
 /* gray background color*/
 footer {
@@ -35,6 +38,7 @@ body{
     background-color: #bbf0c8;
 
 }
+
 
 #B_Map.jumbotron {
     margin-top: 50px;

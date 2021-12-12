@@ -1,0 +1,61 @@
+/* Remove the navbar's default rounded borders and increase the bottom margin */ 
+.navbar {
+    margin-bottom: 50px;
+    margin-top: 50px;
+    font-size: 1.50em;
+}
+.header {
+    padding-top: 1%;
+}
+
+#deco.container {
+    margin-top: 50px;
+    margin-bottom: 60px;
+ 
+}
+
+#tableau.container {
+    margin-top: 30px;
+}
+
+
+/* gray background color*/
+footer {
+  background-color: #d4d4d4;
+  padding: 25px;
+}
+
+body{
+    background-color: #fafafa;
+}
+
+#vendeur.jumbotron {
+    background-image: url("bannière.jpg");
+    background-size: cover;
+    color: #E8F9F7;
+}
+
+#admin.jumbotron {
+    background-image: url("bannière_admin.png");
+    background-size: cover;
+    color: white;
+
+}
+
+
+#ajouter_obj.btn-default,
+#ajouter_obj.btn-default:hover,
+#ajouter_obj.btn-default:active, 
+#ajouter_obj.btn-default:visited{
+    background-color: #F9E79F !important;
+}
+
+#supprimer_obj.btn-default,
+#supprimer_obj.btn-default:hover,
+#supprimer_obj.btn-default:active, 
+#supprimer_obj.btn-default:visited{
+    background-color: #E59866 !important;
+}
+
+
+
